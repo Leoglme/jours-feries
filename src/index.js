@@ -1,14 +1,14 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.findFeteByDate = exports.feteList = exports.datesFeries = exports.isFerie = exports.getJoursFeries = void 0;
-const fetes_1 = require("./fetes");
+var fetes_1 = require("./fetes");
 function _defineProperty(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
             value: value,
             enumerable: true,
             configurable: true,
-            writable: true,
+            writable: true
         });
     }
     else {
@@ -16,43 +16,43 @@ function _defineProperty(obj, key, value) {
     }
     return obj;
 }
-const datesFeries = [];
+var datesFeries = [];
 exports.datesFeries = datesFeries;
-const feteList = [];
+var feteList = [];
 exports.feteList = feteList;
-const getJoursFeries = function getJoursFeries(year) {
-    const _ref = arguments.length > 1 && arguments[1] !== undefined
+var getJoursFeries = function getJoursFeries(year) {
+    var _ref = arguments.length > 1 && arguments[1] !== undefined
         ? arguments[1]
         : {
-            alsace: false,
+            alsace: false
         }, alsace = _ref.alsace;
     return Object.keys(fetes_1.fetes) // filter out alsace if needed
-        .filter((fete) => {
+        .filter(function (fete) {
         return alsace || !fetes_1.fetesAlsace.includes(fete);
     }) // get results
-        .map((fete) => {
-        const date = fetes_1.fetes[fete](parseInt(year));
+        .map(function (fete) {
+        var date = fetes_1.fetes[fete](parseInt(year));
         datesFeries.push(date);
-        feteList.push({ fete, date });
+        feteList.push({ fete: fete, date: date });
         return _defineProperty({}, fete, date);
     }) // flatten dict
-        .reduce((acc, fete) => {
+        .reduce(function (acc, fete) {
         return Object.assign(acc, fete);
     }, {});
 };
 exports.getJoursFeries = getJoursFeries;
-const isFerie = (date) => {
+var isFerie = function (date) {
     if (datesFeries.length === 0) {
         getJoursFeries(date.getFullYear());
     }
-    return datesFeries.find(item => item.getTime() === date.getTime()) !== undefined;
+    return datesFeries.includes(date);
 };
 exports.isFerie = isFerie;
-const findFeteByDate = (date) => {
+var findFeteByDate = function (date) {
+    var _a;
     if (feteList.length === 0) {
         getJoursFeries(date.getFullYear());
     }
-    return feteList.find(d => d.date.getTime() === date.getTime())?.fete;
+    return (_a = feteList.find(function (d) { return d.date === date; })) === null || _a === void 0 ? void 0 : _a.fete;
 };
 exports.findFeteByDate = findFeteByDate;
-//# sourceMappingURL=index.js.map
