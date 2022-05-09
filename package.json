@@ -1,0 +1,22 @@
+{
+  "name": "jours-feries",
+  "version": "1.0.0",
+  "description": "Librarie typescript pour calculer et intéragir avec les jours feriés en france",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leoglme/jours-feries.git"
+  },
+  "keywords": [
+    "ts", "typescript", "france", "holiday", "jour", "ferié"
+  ],
+  "author": "leoglme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leoglme/jours-feries/issues"
+  },
+  "homepage": "https://github.com/Leoglme/jours-feries#readme"
+}

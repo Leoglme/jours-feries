@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": ["es6", "dom", "es2017", "esnext"],
+    "module": "CommonJS",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitOnError": true,
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "tests"
+  ]
+}
