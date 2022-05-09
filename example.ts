@@ -2,22 +2,20 @@ import {getJoursFeries, isFerie, datesFeries, feteList, findFeteByDate} from './
 
 const noel = new Date("2022-12-24T23:00:00.000Z")
 
-//Liste [fete]: Date
+// Liste [fete]: Date
 const list = getJoursFeries(2022)
 console.log(list)
 
 // Le jour est-il ferié ?
 const res = isFerie(noel)
 console.log(res)
-console.log(noel)
+
+// Tableau de dates des jours feriés
 console.log(datesFeries)
 
-//Liste {fete: string, date: Date}
-console.log(datesFeries)
-
-//Liste de noms de fête
+// Liste {fete: string, date: Date}
 console.log(feteList)
 
-//Trouver le nom d'une fête avec sa date
+// Trouver le nom d'une fête avec sa date
 const feteName = findFeteByDate(noel)
 console.log(feteName)
