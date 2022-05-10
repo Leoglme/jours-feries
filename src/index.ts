@@ -15,6 +15,7 @@ function _defineProperty(obj: { [key: string]: unknown }, key: string, value: Da
 }
 
 const datesFeries: Date[] = []
+let currentYear: number = new Date().getFullYear()
 const feteList: { fete: string, date: Date }[] = []
 
 const getJoursFeries = function getJoursFeries(year: number | string) {
@@ -42,16 +43,20 @@ const getJoursFeries = function getJoursFeries(year: number | string) {
 };
 
 const isFerie = (date: Date): boolean => {
-    if (datesFeries.length === 0) {
-        getJoursFeries(date.getFullYear())
+    const year = date.getFullYear()
+    if (datesFeries.length === 0 || currentYear !== year) {
+        getJoursFeries(year)
     }
+    currentYear = year;
     return datesFeries.find(item => item.getTime() === date.getTime()) !== undefined;
 }
 
 const findFeteByDate = (date: Date): string | undefined => {
-    if (feteList.length === 0) {
-        getJoursFeries(date.getFullYear())
+    const year = date.getFullYear()
+    if (feteList.length === 0 || currentYear !== year) {
+        getJoursFeries(year)
     }
+    currentYear = year;
     return feteList.find(d => d.date.getTime() === date.getTime())?.fete
 }
 
